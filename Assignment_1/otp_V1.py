@@ -33,12 +33,14 @@ def sendEmailtoUser():
 
     # Quiting the server after sending email
     server.quit();
-
+def generateOtp():
+    otp = random.randrange(1000,10000)
+    return otp
 try:
     server = smtplib.SMTP('smtp.gmail.com', PORT)
     server.starttls()
     server.login(myEmail,myPass)
-    otp = random.randrange(100000,1000000)
+    otp = generateOtp()
     
     # sending Email to User
     sendEmailtoUser()
